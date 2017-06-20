@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>登录</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <!-- <meta name="format-detection" content="telephone=no"> -->
+    <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
+        <!-- <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/0.4.2/weui.min.css"> -->
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="/javascripts/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="weui-cells__title" style="color:green">用户登录</div>
+<div class="weui-cells">
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><img src="/images/account-1.ico" alt="" style="width:20px;margin-right:5px;display:block"></div>
+        <div class="weui-cell__bd"><p>用户名</p></div>
+        <div class="weui-cell__ft"><input id ="account" value="stevekeol" type="text" name="username" class="weui-input" required="" placeholder="请输入用户名/手机号"></div>
+
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><img src="/images/phone.ico" alt="" style="width:20px;margin-right:5px;display:block"></div>
+        <div class="weui-cell__bd"><p>手机号</p></div>
+        <div class="weui-cell__ft"><input id ="phone" value="15258800906" type="text" name="username" class="weui-input" required="" placeholder="请输入手机号"></div>
+    </div>
+    <div class="weui-cell">	
+        <div class="weui-cell__hd"><img src="/images/password-2.ico" alt="" style="width:20px;margin-right:5px;display:block"></div>
+        <div class="weui-cell__bd"><p>密码</p></div>
+        <div class="weui-cell__ft"><input id ="password" value="123456" type="text" name="username" class="weui-input password" required="" placeholder="请输入密码"></div>
+    </div>
+</div>
+<div class="weui-btn-area">
+    <a id= "loginBtn" href="javascript:;" class="weui-btn weui-btn_primary js-btn">登录</a>
+</div>
+
+<div class="weui-btn-area weui-flex" style="margin: 20 10 20 10">
+
+	<span style="margin: auto"><a href="http://www.baidu.com" class="weui-flex__item">
+		<p>忘记密码</p>
+	</a></span>
+	<span style="margin: auto"><a href="/signup" class="weui-flex__item">
+		<p>注册新用户</p>
+	</a></span>
+</div>
+
+
+<div class="weui-loadmore weui-loadmore_line">
+    <span class="weui-loadmore__tips">其它方式登录</span>
+</div>
+<div>	
+    <a class="weui-cell__hd" href="http://www.baidu.com"><img src="/images/wechat.png" alt="" style="width:30px; display:block; margin:auto"></a>
+</div>
+
+<div class="weui-footer weui-footer_fixed-bottom">
+    <p class="weui-footer__links">
+        <a href="http://www.baidu.com" class="weui-footer__link">医电园科技</a>
+    </p>
+    <p class="weui-footer__text">Copyright &copy; 2016-2017 ydytech.net</p>
+</div>
+<script>
+(function($){
+    $(document).ready(function () {
+        $('#loginBtn').on('click', (function (e) {
+            e.preventDefault();
+
+            var formData = {};
+                formData.account = $("#account").val();
+                formData.phone = $("#phone").val();
+                formData.password = $("#password").val();
+
+            $.ajax({
+                type: 'POST',
+                url: '/loginPost',
+                data: formData,
+                success: function (data) {
+                    if (data['code'] == '00'){  //数据库access错误
+                        alert("database access error...");
+                        // location.href = 'http://www.baidu.com';   
+                    }else if(data['code'] == '01'){  //密码错误
+                        alert("password wrong!"); 
+                        location.href = '/login'; 
+                    }else if(data['code'] == '02'){ //登录成功
+                        alert("login success!");   
+                        location.href = '/devList';
+                    }else if(data['code'] == '03'){     //未注册
+                        alert("please signup first!");
+                        location.href = '/signup';
+                    }
+                },
+                error: function (data) {
+                    alert("fuck the world ... error!");
+                }
+            });
+        }));
+    });
+})(jQuery);
+// (function($){
+//     $(document).ready(function () {
+//         $('#loginBtn').on('click', (function (e) {
+//             e.preventDefault();
+
+//             var formData = {};
+//                 formData.account = $("#account").val(),
+//                 formData.phone = $("#phone").val(),
+//                 formData.password = $("#password").val(),
+
+//             $.ajax({
+//                 type: 'POST',
+//                 url: '/login',
+//                 data: formData,
+//                 success: function (data) {
+//                     if (data['code'] == '00'){  //数据库access错误
+//                         alert("database access error...");
+//                         // window.location.href = 'http://www.baidu.com';   
+//                     }else if(data['code'] == '01'){  //密码错误
+//                         alert("password wrong!"); 
+//                         window.location.href = '/dataShow'; 
+//                     }else if(data['code'] == '02'){ //登录成功
+//                         alert("login success!");    
+//                         window.location.href = '/dataShow'; 
+//                     }else if(data['code'] == '03'){     //未注册
+//                         alert("please log up first!");
+//                         window.location.href = './dataShow';    
+//                     }
+//                 },
+//                 error: function (data) {
+//                     alert("error!");
+//                 }
+//             });
+//         }));
+//     });
+// })(jQuery);
+</script>
+</body>
+</html>

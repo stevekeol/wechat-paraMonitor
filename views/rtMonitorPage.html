@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>实时监测页面</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+<link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
+<!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script> -->
+<!-- <script src="/javascripts/jquery.min.js"></script> -->
+
+<!-- .hr0{ height:1px;border:none;border-top:1px dashed #0066CC;}
+.hr1{ height:1px;border:none;border-top:1px solid #555555;}
+.hr2{ height:3px;border:none;border-top:3px double red;}
+.hr3{ height:5px;border:none;border-top:5px ridge green;}
+.hr4{ height:10px;border:none;border-top:10px groove skyblue;} -->
+<style>
+body{
+	background-color: #123247;
+}
+.hr0{
+	height:3px;border:none;border-top:3px double #555555;
+}
+.hr1{
+	height:1px;border:none;border-top:1px solid #555555;
+}
+.headImg{
+	width:340px;
+	height:50px;
+	margin:0px auto;
+	margin-top: 15px;
+}
+.paraRaw{
+    width: 340px;  /* width和height 暂且hardcode，待改进*/
+    height:80px;
+    /*margin-top: 15px;*/
+    /*color:#1aad19;*/
+    /*border:1px solid #1aad19;*/
+    position:relative;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+	/*padding-left:14px;
+    padding-right:14px;*/
+    box-sizing:border-box;
+    font-size:12px;
+    text-align:center;
+    line-height:2.55555556;
+    /*border-radius:5px;*/
+    /*-webkit-tap-highlight-color:rgba(0,0,0,0);*/
+    overflow:auto;
+}
+.typeIconWrapper{
+    width:60px;
+    height:60px;
+    float:left;
+    /*display:block;*/
+    margin-top:10px;
+    /*margin-left:10px;*/
+    /*position:relative;*/
+}
+.typeIcon{
+	width:60px;
+	height:60px;
+}
+.paraWrapper{
+	width:260px;
+	height:60px;
+	float:right;
+	margin-top:10px;
+	/*position:relative;*/
+}
+.paraNameWrapper{
+	width:200px;
+	height:60px;
+	float:left;
+}
+.paraValueWrapper{
+	width:60px;
+	height:60px;
+	float:right;
+}
+.paraName{
+    text-align: center;
+    position:relative;
+    font-size:16px;
+    /*font-size: */
+}
+.paraUnit{
+    text-align: center;
+    position:relative;
+}
+.paraValue{
+    text-align: center;
+    position:relative;
+    font-size:30px;
+    color: #1aad19;
+
+}
+</style>
+</head>
+<body>
+<!-- headImage -->
+<div>
+	<img class='headImg' src='/images/mydevs/headImg.png'>
+</div>
+<hr class='hr0'>
+
+
+<!-- Heart Rate -->
+<div class='paraRaw'>
+	<div class='typeIconWrapper'>
+		<img class='typeIcon' src='/images/mydevs/medicalHeart.png'>
+	</div>
+	<div class='paraWrapper'>
+		<div class='paraNameWrapper'>
+			<span>
+				<p class='paraName'>Heart Rate</p>
+			</span>
+			<span>
+				<p class='paraUnit'>beats/min</p>
+			</span>
+		</div>
+		<div class='paraValueWrapper'>
+			<h1 class='paraValue'>67</h1>
+		</div>
+	</div>
+</div>
+<hr class='hr1'>
+
+<!-- Respiratory Rate -->
+<div class='paraRaw'>
+	<div class='typeIconWrapper'>
+		<img class='typeIcon' src='/images/mydevs/lung.png'>
+	</div>
+	<div class='paraWrapper'>
+		<div class='paraNameWrapper'>
+			<span>
+				<p class='paraName'>Respiratory Rate</p>
+			</span>
+			<span>
+				<p class='paraUnit'>times/min</p>
+			</span>
+		</div>
+		<div class='paraValueWrapper'>
+			<h1 class='paraValue'>14</h1>
+		</div>
+	</div>
+</div>
+<hr class='hr1'>
+</body>
+</html>

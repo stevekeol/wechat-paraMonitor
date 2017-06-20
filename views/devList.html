@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>我的设备</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
+    <link rel="stylesheet" src="/stylesheets/wechat_ydy.css">
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="/javascripts/jquery.min.js"></script>
+    <!-- <script src="/javascripts/ejs.min.js"></script> -->
+    <style>
+    .mydev{
+        width: 340px;  /* width和height 暂且hardcode，待改进*/
+        height:100px;
+        margin-top: 15px;
+        /*color:#1aad19;*/
+        border:1px solid #555555;
+        position:relative;
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
+        padding-left:14px;
+        padding-right:14px;
+        box-sizing:border-box;
+        font-size:18px;
+        text-align:center;
+        line-height:2.55555556;
+        border-radius:5px;
+        -webkit-tap-highlight-color:rgba(0,0,0,0);
+        overflow:hidden;
+    }
+    .typeIcon{
+        width:80px;
+        height:80px;
+        float:left;
+        /*display:block;*/
+        margin-top:5px;
+
+    }
+ /*   .typeIcon img{
+        border-radius:50%;
+    }*/
+/*    .box-shadow{
+        box-shadow: -5px 0 5px red,
+                    0 5px 5px blue, 
+                    5px 0 5px green,
+                    0 -5px 5px orange;
+    }*/
+    .info-area{
+        width:200px;
+        height:90px;
+        float:right;
+        /*position:relative;*/
+        margin-top:5px;
+        margin-right: 20px; 
+
+        /*margin-left:1px;*/
+    }
+    .devName-area{
+        width:200px;
+        height:45px;
+        margin-top:5px;
+        /*position: relative;*/
+        /*vertical-align:top;*/
+    }
+    .devName{
+        /*float:left;*/
+        color:#1aad19;
+        width:150px;
+        height:45px;
+        /*position: relative;*/
+
+    }
+    .online{
+        height:45px;
+        width:45px;
+        float:right;
+        /*display:block;*/
+        position:relative;
+        /*padding-left:10px;*/
+    }
+    .online img{
+        height:20px;
+        width:20px;
+        margin-left:-65px;
+        margin-top: 5px;
+    }
+    .fromWhere{
+        width:200px;
+        height:45px;
+    }
+    </style>
+</head>
+<body align='center' style='background-color: #123247'>
+
+<!-- <h1>设备测试页面！</h1> -->
+
+<!-- <a href="javascript:;" class="weui-btn weui-btn_primary">页面主操作 Normal</a>
+<a href="javascript:;" class="weui-btn weui-btn_disabled weui-btn_primary">页面主操作 Disabled</a>
+<a href="javascript:;" class="weui-btn weui-btn_default">页面次要操作 Normal</a>
+<a href="javascript:;" class="weui-btn weui-btn_disabled weui-btn_default">页面次要操作 Disabled</a>
+<a href="javascript:;" class="weui-btn weui-btn_warn">警告类操作 Normal</a>
+<a href="javascript:;" class="weui-btn weui-btn_disabled weui-btn_warn">警告类操作 Disabled</a>
+
+<div class="button-sp-area">
+    <a href="javascript:;" class="weui-btn weui-btn_plain-default">按钮</a>
+    <a href="javascript:;" class="weui-btn weui-btn_plain-default weui-btn_plain-disabled">按钮</a>
+    <a href="javascript:;" class="weui-btn weui-btn_plain-primary">按钮</a>
+    <a href="javascript:;" class="weui-btn weui-btn_plain-primary weui-btn_plain-disabled">按钮</a>
+    <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary">按钮</a>
+    <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">按钮</a>
+    <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_warn">按钮</a>
+</div> -->
+
+<div class='mydev' onclick="location.href='/rtMonitor'">
+    <div class='typeIcon'><img src='/images/mydevs/devType-9.png'></div>
+    <div class='info-area'>
+        <div class='devName-area'>
+            <div class='online'><img src='/images/mydevs/online.new.png'></div>
+            <div class='devName'>stevekeol</div>
+        </div>
+        <div class='fromWhere'>From: skypupil</div>
+    </div>
+</div>
+
+<div class='mydev' onclick="location.href='/rtMonitor'">
+    <div class='typeIcon' ><img src='/images/mydevs/devType-10.png'></div>
+    <div class='info-area'>
+        <div class='devName-area'>
+            <div class='online' ><img src='/images/mydevs/offline.new.png'></div>
+            <div class='devName'>ygcygc</div>
+        </div>
+        <div class='fromWhere'>From: zhaodaxi</div>
+    </div>
+</div>
+
+<div class='mydev' onclick="location.href='/rtMonitor'">
+    <div class='typeIcon'><img src='/images/mydevs/devType-9.png'></div>
+    <div class='info-area'>
+        <div class='devName-area'>
+            <div class='online'><img src='/images/mydevs/offline.new.png'></div>
+            <div class='devName'>mom&dad</div>
+        </div>
+        <div class='fromWhere'>From: home</div>
+    </div>
+</div>
+<!-- <div class="weui-cells__title">带说明的列表项</div>
+<div class="weui-cells">s
+    <div class="weui-cell">
+        <div class="weui-cell__bd">
+            <p>标题文字</p>
+        </div>
+        <div class="weui-cell__ft">说明文字</div>
+    </div>
+</div>
+<div class="weui-cells__title">带图标、说明的列表项</div>
+<div class="weui-cells">
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><img src="..." alt="" style="width:20px;margin-right:5px;display:block"></div>
+        <div class="weui-cell__bd">
+            <p>标题文字</p>
+        </div>
+        <div class="weui-cell__ft">说明文字</div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><img src="..." alt="" style="width:20px;margin-right:5px;display:block"></div>
+        <div class="weui-cell__bd">
+            <p>标题文字</p>
+        </div>
+        <div class="weui-cell__ft">说明文字</div>
+    </div>
+</div>
+
+<div class="weui-cells__title">带跳转的列表项</div>
+<div class="weui-cells">
+    <a class="weui-cell weui-cell_access" href="javascript:;">
+        <div class="weui-cell__bd">
+            <p>cell standard</p>
+        </div>
+        <div class="weui-cell__ft">
+        </div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="javascript:;">
+        <div class="weui-cell__bd">
+            <p>cell standard</p>
+        </div>
+        <div class="weui-cell__ft">
+        </div>
+    </a>
+</div>
+
+<div class="weui-cells__title">带说明、跳转的列表项</div>
+<div class="weui-cells">
+    <a class="weui-cell weui-cell_access" href="javascript:;">
+        <div class="weui-cell__bd">
+            <p>cell standard</p>
+        </div>
+        <div class="weui-cell__ft">说明文字</div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="javascript:;">
+        <div class="weui-cell__bd">
+            <p>cell standard</p>
+        </div>
+        <div class="weui-cell__ft">说明文字</div>
+    </a>
+
+</div>
+
+<div class="weui-cells__title">带图标、说明、跳转的列表项</div>
+<div class="weui-cells">
+
+    <a class="weui-cell weui-cell_access" href="javascript:;">
+        <div class="weui-cell__hd"><img src="..." alt="" style="width:20px;margin-right:5px;display:block"></div>
+        <div class="weui-cell__bd">
+            <p>cell standard</p>
+        </div>
+        <div class="weui-cell__ft">说明文字</div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="javascript:;">
+        <div class="weui-cell__hd"><img src="..." alt="" style="width:20px;margin-right:5px;display:block"></div>
+        <div class="weui-cell__bd">
+            <p>cell standard</p>
+        </div>
+        <div class="weui-cell__ft">说明文字</div>
+    </a>
+</div> -->
+
+<div class="weui-btn-area">
+    <a id= "addDevBtn" href="/scanPage" class="weui-btn weui-btn_primary">添加新设备</a>
+</div>
+<script>
+// var timestamp = Date.parse(new Date());
+// alert(timestamp);
+</script>
+</body>
+</html>
